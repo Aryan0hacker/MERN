@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>79th Independence Day Celebration</title>
+    <meta name="description" content="A premium animated celebration page for India's 79th Independence Day. Featuring an interactive flag hoisting ceremony at the Red Fort, fighter jet air show flypast, night searchlights, and custom synthesized national anthem.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css?v=3">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header Section -->
+        <header class="main-header">
+            <!-- 79th Top Badge Pill -->
+            <div class="top-badge-container">
+                <span class="top-badge">79th Independence Day</span>
+            </div>
+            
+            <!-- Main Tricolor Title -->
+            <div class="title-banner">
+                <span class="banner-word word-saffron">HAPPY</span>
+                <span class="banner-word word-white">INDEPENDENCE</span>
+                <span class="banner-word word-green">DAY</span>
+            </div>
+            <p class="subtitle">Celebrating the Spirit of Unity, Diversity, and Freedom</p>
+
+            <!-- Decorative Tricolor Diamonds Stack (Top-Right) -->
+            <div class="diamonds-stack">
+                <div class="diamond diamond-saffron"></div>
+                <div class="diamond diamond-white"></div>
+                <div class="diamond diamond-green"></div>
+            </div>
+        </header>
+
+        <!-- Animation Stage -->
+        <main class="animation-stage stage-day" id="animationStage">
+            <!-- Fireworks & Petals Canvas Layer -->
+            <canvas class="particle-canvas" id="particleCanvas"></canvas>
+
+            <!-- Sky Background Layer -->
+            <div class="sky-layer">
+                <!-- Stars for Night Mode -->
+                <div class="star-field">
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                    <div class="star"></div>
+                </div>
+
+                <!-- Sun / Moon Celestial Body -->
+                <div class="celestial"></div>
+                
+                <!-- Night Searchlights -->
+                <div class="searchlight searchlight-left"></div>
+                <div class="searchlight searchlight-right"></div>
+                
+                <!-- Transparent Overlapping Clouds -->
+                <div class="cloud-vector cv-1"></div>
+                <div class="cloud-vector cv-2"></div>
+            </div>
+
+            <!-- Red Fort Layer -->
+            <div class="red-fort-layer">
+                <svg class="red-fort-svg" viewBox="0 0 1200 250" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Left End Tower -->
+                    <rect x="80" y="95" width="50" height="155" fill="var(--clr-fort-sandstone)" />
+                    <rect x="80" y="130" width="50" height="4" fill="var(--clr-fort-light)" />
+                    <rect x="80" y="180" width="50" height="4" fill="var(--clr-fort-light)" />
+                    <!-- Left End Tower Pillars & Dome -->
+                    <rect x="85" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="97" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="109" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="121" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <path d="M 80,80 Q 105,55 130,80 Z" fill="var(--clr-fort-shadow)" />
+                    <path d="M 82,80 Q 105,58 128,80 Z" fill="var(--clr-fort-sandstone)" />
+
+                    <!-- Right End Tower -->
+                    <rect x="1070" y="95" width="50" height="155" fill="var(--clr-fort-sandstone)" />
+                    <rect x="1070" y="130" width="50" height="4" fill="var(--clr-fort-light)" />
+                    <rect x="1070" y="180" width="50" height="4" fill="var(--clr-fort-light)" />
+                    <!-- Right End Tower Pillars & Dome -->
+                    <rect x="1075" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="1087" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="1099" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <rect x="1111" y="80" width="4" height="15" fill="var(--clr-fort-light)" />
+                    <path d="M 1070,80 Q 1095,55 1120,80 Z" fill="var(--clr-fort-shadow)" />
+                    <path d="M 1072,80 Q 1095,58 1118,80 Z" fill="var(--clr-fort-sandstone)" />
+
+                    <!-- Left Wall Wing -->
+                    <rect x="130" y="140" width="310" height="110" fill="var(--clr-fort-sandstone)" />
+                    <line x1="130" y1="137" x2="440" y2="137" stroke="var(--clr-fort-sandstone)" stroke-width="6" stroke-dasharray="12 8" />
+                    <!-- Left Wing Arched Windows with glows -->
+                    <!-- Window 1 (x=180) -->
+                    <path d="M 172,195 V 175 C 172,167 188,167 188,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 172,195 V 175 C 172,167 188,167 188,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 2 (x=235) -->
+                    <path d="M 227,195 V 175 C 227,167 243,167 243,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 227,195 V 175 C 227,167 243,167 243,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 3 (x=290) -->
+                    <path d="M 282,195 V 175 C 282,167 298,167 298,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 282,195 V 175 C 282,167 298,167 298,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 4 (x=345) -->
+                    <path d="M 337,195 V 175 C 337,167 353,167 353,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 337,195 V 175 C 337,167 353,167 353,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 5 (x=400) -->
+                    <path d="M 392,195 V 175 C 392,167 408,167 408,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 392,195 V 175 C 392,167 408,167 408,175 V 195 Z" fill="#fef08a" opacity="0" />
+
+                    <!-- Right Wall Wing -->
+                    <rect x="760" y="140" width="310" height="110" fill="var(--clr-fort-sandstone)" />
+                    <line x1="760" y1="137" x2="1070" y2="137" stroke="var(--clr-fort-sandstone)" stroke-width="6" stroke-dasharray="12 8" />
+                    <!-- Right Wing Arched Windows with glows -->
+                    <!-- Window 1 (x=800) -->
+                    <path d="M 792,195 V 175 C 792,167 808,167 808,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 792,195 V 175 C 792,167 808,167 808,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 2 (x=855) -->
+                    <path d="M 847,195 V 175 C 847,167 863,167 863,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 847,195 V 175 C 847,167 863,167 863,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 3 (x=910) -->
+                    <path d="M 902,195 V 175 C 902,167 918,167 918,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 902,195 V 175 C 902,167 918,167 918,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 4 (x=965) -->
+                    <path d="M 957,195 V 175 C 957,167 973,167 973,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 957,195 V 175 C 957,167 973,167 973,175 V 195 Z" fill="#fef08a" opacity="0" />
+                    <!-- Window 5 (x=1020) -->
+                    <path d="M 1012,195 V 175 C 1012,167 1028,167 1028,175 V 195 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 1012,195 V 175 C 1012,167 1028,167 1028,175 V 195 Z" fill="#fef08a" opacity="0" />
+
+                    <!-- Left Central Tower -->
+                    <rect x="440" y="75" width="15" height="175" fill="var(--clr-fort-shadow)" />
+                    <rect x="485" y="75" width="15" height="175" fill="var(--clr-fort-shadow)" />
+                    <rect x="455" y="75" width="30" height="175" fill="var(--clr-fort-sandstone)" />
+                    <!-- Left Central Tower Windows -->
+                    <path d="M 462,125 V 105 C 462,99 478,99 478,105 V 125 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 462,125 V 105 C 462,99 478,99 478,105 V 125 Z" fill="#fef08a" opacity="0" />
+                    <path d="M 462,185 V 165 C 462,159 478,159 478,165 V 185 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 462,185 V 165 C 462,159 478,159 478,165 V 185 Z" fill="#fef08a" opacity="0" />
+                    <!-- Left Central Tower Chhatri -->
+                    <rect x="448" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="462" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="476" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="490" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <path d="M 442,55 Q 470,25 498,55 Z" fill="var(--clr-fort-shadow)" />
+                    <path d="M 445,55 Q 470,28 495,55 Z" fill="var(--clr-fort-light)" />
+
+                    <!-- Right Central Tower -->
+                    <rect x="700" y="75" width="15" height="175" fill="var(--clr-fort-shadow)" />
+                    <rect x="745" y="75" width="15" height="175" fill="var(--clr-fort-shadow)" />
+                    <rect x="715" y="75" width="30" height="175" fill="var(--clr-fort-sandstone)" />
+                    <!-- Right Central Tower Windows -->
+                    <path d="M 722,125 V 105 C 722,99 738,99 738,105 V 125 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 722,125 V 105 C 722,99 738,99 738,105 V 125 Z" fill="#fef08a" opacity="0" />
+                    <path d="M 722,185 V 165 C 722,159 738,159 738,165 V 185 Z" fill="var(--clr-fort-shadow)" />
+                    <path class="fort-glow" d="M 722,185 V 165 C 722,159 738,159 738,165 V 185 Z" fill="#fef08a" opacity="0" />
+                    <!-- Right Central Tower Chhatri -->
+                    <rect x="708" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="722" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="736" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <rect x="750" y="55" width="4" height="20" fill="var(--clr-fort-light)" />
+                    <path d="M 702,55 Q 730,25 758,55 Z" fill="var(--clr-fort-shadow)" />
+                    <path d="M 705,55 Q 730,28 755,55 Z" fill="var(--clr-fort-light)" />
+
+                    <!-- Center Facade Gateway Building -->
+                    <rect x="500" y="105" width="200" height="145" fill="var(--clr-fort-sandstone)" />
+                    <line x1="500" y1="102" x2="700" y2="102" stroke="var(--clr-fort-sandstone)" stroke-width="6" stroke-dasharray="12 8" />
+                    <!-- Small decorative domes -->
+                    <path d="M 520,102 Q 525,92 530,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 545,102 Q 550,92 555,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 570,102 Q 575,92 580,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 595,102 Q 600,92 605,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 620,102 Q 625,92 630,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 645,102 Q 650,92 655,102 Z" fill="var(--clr-fort-light)" />
+                    <path d="M 670,102 Q 675,92 680,102 Z" fill="var(--clr-fort-light)" />
+                    
+                    <!-- Large Central Archway -->
+                    <path d="M 550,250 V 150 C 550,120 650,120 650,150 V 250 Z" fill="var(--clr-fort-shadow)" />
+                    <path d="M 560,250 V 160 C 560,135 640,135 640,160 V 250 Z" fill="#2d0f0a" />
+                    <path class="fort-glow" d="M 560,250 V 160 C 560,135 640,135 640,160 V 250 Z" fill="#fef08a" opacity="0" style="mix-blend-mode: screen;" />
+                </svg>
+            </div>
+
+            <!-- Flagpole & Rope Pulley System -->
+            <div class="flagpole-container">
+                <div class="flagpole-pole"></div>
+                <div class="flagpole-rope"></div>
+                <!-- Sliding Flag Assembly -->
+                <div class="flag-assembly" id="flagAssembly">
+                    <!-- Flag SVG Waving -->
+                    <svg class="flag-svg-node" viewBox="0 0 90 60" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Saffron -->
+                        <rect x="0" y="0" width="90" height="20" fill="#FF9933" />
+                        <!-- White -->
+                        <rect x="0" y="20" width="90" height="20" fill="#FFFFFF" />
+                        <!-- Green -->
+                        <rect x="0" y="40" width="90" height="20" fill="#128807" />
+                        <!-- Ashoka Chakra -->
+                        <circle cx="45" cy="30" r="8" fill="none" stroke="#000080" stroke-width="1.2" />
+                        <circle cx="45" cy="30" r="1.5" fill="#000080" />
+                        <g stroke="#000080" stroke-width="0.5">
+                            <line x1="45" y1="22" x2="45" y2="38" />
+                            <line x1="37" y1="30" x2="53" y2="30" />
+                            <line x1="39.3" y1="24.3" x2="50.7" y2="35.7" />
+                            <line x1="50.7" y1="24.3" x2="39.3" y2="35.7" />
+                            <line x1="37.5" y1="26.5" x2="52.5" y2="33.5" />
+                            <line x1="37.5" y1="33.5" x2="52.5" y2="26.5" />
+                            <line x1="45" y1="30" x2="45" y2="22" transform="rotate(15 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="38" transform="rotate(15 45 30)" />
+                            <line x1="45" y1="30" x2="37" y2="30" transform="rotate(15 45 30)" />
+                            <line x1="45" y1="30" x2="53" y2="30" transform="rotate(15 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="22" transform="rotate(30 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="38" transform="rotate(30 45 30)" />
+                            <line x1="45" y1="30" x2="37" y2="30" transform="rotate(30 45 30)" />
+                            <line x1="45" y1="30" x2="53" y2="30" transform="rotate(30 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="22" transform="rotate(60 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="38" transform="rotate(60 45 30)" />
+                            <line x1="45" y1="30" x2="37" y2="30" transform="rotate(60 45 30)" />
+                            <line x1="45" y1="30" x2="53" y2="30" transform="rotate(60 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="22" transform="rotate(75 45 30)" />
+                            <line x1="45" y1="30" x2="45" y2="38" transform="rotate(75 45 30)" />
+                            <line x1="45" y1="30" x2="37" y2="30" transform="rotate(75 45 30)" />
+                            <line x1="45" y1="30" x2="53" y2="30" transform="rotate(75 45 30)" />
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Air Show Fighter Jets in V-Formation -->
+            <div class="jets-formation" id="jetsFormation">
+                <!-- Lead Jet -->
+                <svg class="jet-svg jet-lead" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30,0 L 40,25 L 55,35 L 30,32 L 5,35 L 20,25 Z" fill="#475569" />
+                    <path d="M 30,0 L 32,25 L 30,32 L 28,25 Z" fill="#64748b" />
+                    <ellipse cx="30" cy="18" rx="2" ry="5" fill="#bae6fd" />
+                </svg>
+                <!-- Left Jet -->
+                <svg class="jet-svg jet-left" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30,0 L 40,25 L 55,35 L 30,32 L 5,35 L 20,25 Z" fill="#475569" />
+                    <path d="M 30,0 L 32,25 L 30,32 L 28,25 Z" fill="#64748b" />
+                    <ellipse cx="30" cy="18" rx="2" ry="5" fill="#bae6fd" />
+                </svg>
+                <!-- Right Jet -->
+                <svg class="jet-svg jet-right" viewBox="0 0 60 50" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M 30,0 L 40,25 L 55,35 L 30,32 L 5,35 L 20,25 Z" fill="#475569" />
+                    <path d="M 30,0 L 32,25 L 30,32 L 28,25 Z" fill="#64748b" />
+                    <ellipse cx="30" cy="18" rx="2" ry="5" fill="#bae6fd" />
+                </svg>
+            </div>
+        </main>
+
+        <!-- Glassmorphic Dashboard Panel -->
+        <section class="dashboard-panel">
+            <!-- Left Group: Play/Pause, Celebrate, Air Show, Pulley Slider -->
+            <div class="dash-left-group">
+                <!-- Pause Button -->
+                <button id="btnPause" class="btn-pause" aria-label="Pause Animation">
+                    <span class="btn-icon">⏸</span> <span class="btn-text">Pause</span>
+                </button>
+
+                <!-- Celebrate Button -->
+                <button id="btnCelebrate" class="btn-celebrate" aria-label="Launch Fireworks">
+                    <span class="btn-icon">🚀</span> <span class="btn-text">Celebrate</span>
+                </button>
+
+                <!-- Air Show Button -->
+                <button id="btnAirShow" class="btn-airshow" aria-label="Launch Air Show">
+                    <span class="btn-icon">✈️</span> <span class="btn-text">Air Show</span>
+                </button>
+
+                <!-- Pulley Hoisting Slider -->
+                <div class="pulley-slider-container">
+                    <span class="pulley-label" id="pulleyLabel">FLAG PULLEY: 0%</span>
+                    <input type="range" id="pulleyInput" class="pulley-input" min="0" max="100" value="0" aria-label="Flag Pulley Control">
+                </div>
+            </div>
+
+            <!-- Right Group: Time of Day, Sound Toggle -->
+            <div class="dash-left-group">
+                <!-- Time of Day Select Grid -->
+                <div class="time-of-day-section">
+                    <span class="section-title">Time of Day</span>
+                    <div class="time-btn-grid">
+                        <button class="btn-time" id="btnSunrise" data-theme="sunrise">🌅 Sunrise</button>
+                        <button class="btn-time active-theme" id="btnDay" data-theme="day">☀️ Day</button>
+                        <button class="btn-time" id="btnSunset" data-theme="sunset">🌇 Sunset</button>
+                        <button class="btn-time" id="btnNight" data-theme="night">🌙 Night</button>
+                    </div>
+                </div>
+
+                <!-- Sound/Anthem Toggle round button -->
+                <button id="btnSound" class="btn-sound" aria-label="Toggle National Anthem" title="Play National Anthem">
+                    <span class="sound-icon">🔇</span>
+                </button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Interaction and Particle Logic Script -->
+    <script>
+        // --- DOM REFERENCES ---
+        const stage = document.getElementById('animationStage');
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+        const btnPause = document.getElementById('btnPause');
+        const btnCelebrate = document.getElementById('btnCelebrate');
+        const btnAirShow = document.getElementById('btnAirShow');
+        const pulleyInput = document.getElementById('pulleyInput');
+        const pulleyLabel = document.getElementById('pulleyLabel');
+        const btnSound = document.getElementById('btnSound');
+        const flagAssembly = document.getElementById('flagAssembly');
+        const jetsFormation = document.getElementById('jetsFormation');
+        const leadJet = document.querySelector('.jet-lead');
+        const leftJet = document.querySelector('.jet-left');
+        const rightJet = document.querySelector('.jet-right');
+
+        // --- STATE VARIABLES ---
+        let particles = [];
+        let isPaused = false;
+        let activeTheme = 'day';
+        let isAirShowActive = false;
+        let flagProgress = 0;
+
+        const tricolorCodes = ['#FF9933', '#FFFFFF', '#128807'];
+
+        // --- RESIZE CANVAS ---
+        function resizeCanvas() {
+            canvas.width = stage.clientWidth;
+            canvas.height = stage.clientHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        // --- PARTICLE CLASSES ---
+        class FireworkParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                const angle = Math.random() * Math.PI * 2;
+                const speed = Math.random() * 4.5 + 1.5;
+                this.vx = Math.cos(angle) * speed;
+                this.vy = Math.sin(angle) * speed;
+                this.alpha = 1.0;
+                this.decay = Math.random() * 0.02 + 0.015;
+                this.gravity = 0.06;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.vy += this.gravity;
+                this.alpha -= this.decay;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 2.5, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 6;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class FireworkRocket {
+            constructor(startX, startY, targetX, targetY, color) {
+                this.x = startX;
+                this.y = startY;
+                this.targetX = targetX;
+                this.targetY = targetY;
+                this.color = color;
+                const distance = Math.hypot(targetX - startX, targetY - startY);
+                this.duration = distance / 7.5;
+                this.vx = (targetX - startX) / this.duration;
+                this.vy = (targetY - startY) / this.duration;
+                this.progress = 0;
+                this.alpha = 1.0;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.progress++;
+                if (this.progress >= this.duration) {
+                    this.alpha = 0; // Trigger explosion
+                    triggerExplosion(this.targetX, this.targetY, this.color);
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.shadowBlur = 5;
+                ctx.shadowColor = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class PetalParticle {
+            constructor() {
+                const flagBottomVal = parseFloat(flagAssembly.style.bottom) || 25;
+                const flagY = canvas.height - flagBottomVal - 20;
+                
+                this.x = canvas.width / 2 + (Math.random() - 0.2) * 45;
+                this.y = flagY + Math.random() * 20;
+                this.color = tricolorCodes[Math.floor(Math.random() * tricolorCodes.length)];
+                this.size = Math.random() * 4 + 4;
+                this.rotation = Math.random() * Math.PI * 2;
+                this.rotationSpeed = (Math.random() - 0.5) * 0.08;
+                this.vx = (Math.random() - 0.5) * 1.5;
+                this.vy = Math.random() * 1.2 + 0.8;
+                this.oscillationSpeed = Math.random() * 0.04 + 0.02;
+                this.oscillationAngle = Math.random() * Math.PI * 2;
+                this.alpha = 1;
+                this.decay = Math.random() * 0.002 + 0.001;
+            }
+            update() {
+                this.oscillationAngle += this.oscillationSpeed;
+                this.x += Math.sin(this.oscillationAngle) * 0.45 + this.vx;
+                this.y += this.vy;
+                this.rotation += this.rotationSpeed;
+                
+                if (this.y >= canvas.height - 10) {
+                    this.y = canvas.height - 10;
+                    this.vx *= 0.9;
+                    this.vy = 0;
+                    this.alpha -= 0.02;
+                } else {
+                    this.alpha -= this.decay;
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                ctx.beginPath();
+                ctx.moveTo(0, -this.size);
+                ctx.quadraticCurveTo(this.size * 0.6, 0, 0, this.size);
+                ctx.quadraticCurveTo(-this.size * 0.6, 0, 0, -this.size);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        class SmokeParticle {
+            constructor(x, y, color) {
+                this.x = x;
+                this.y = y;
+                this.color = color;
+                this.size = Math.random() * 3.5 + 3.5;
+                this.alpha = 0.85;
+                this.decay = Math.random() * 0.008 + 0.006;
+                this.vx = -1.3 + (Math.random() - 0.5) * 0.4;
+                this.vy = 0.35 + (Math.random() - 0.5) * 0.4;
+            }
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.size += 0.2;
+                this.alpha -= this.decay;
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = this.color;
+                ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        // --- PARTICLE EMITTERS ---
+        function triggerExplosion(x, y, color) {
+            for (let i = 0; i < 45; i++) {
+                particles.push(new FireworkParticle(x, y, color));
+            }
+        }
+
+        function spawnFirework() {
+            const startX = Math.random() * canvas.width;
+            const startY = canvas.height;
+            const targetX = Math.random() * canvas.width * 0.6 + canvas.width * 0.2;
+            const targetY = Math.random() * canvas.height * 0.4 + 30;
+            const color = tricolorCodes[Math.floor(Math.random() * tricolorCodes.length)];
+            particles.push(new FireworkRocket(startX, startY, targetX, targetY, color));
+        }
+
+        function spawnSmokeTrails() {
+            const stageRect = stage.getBoundingClientRect();
+            const leadRect = leadJet.getBoundingClientRect();
+            const leftRect = leftJet.getBoundingClientRect();
+            const rightRect = rightJet.getBoundingClientRect();
+            
+            const leadExhaustX = (leadRect.left + leadRect.right) / 2 - stageRect.left;
+            const leadExhaustY = leadRect.bottom - stageRect.top;
+            
+            const leftExhaustX = (leftRect.left + leftRect.right) / 2 - stageRect.left;
+            const leftExhaustY = leftRect.bottom - stageRect.top;
+            
+            const rightExhaustX = (rightRect.left + rightRect.right) / 2 - stageRect.left;
+            const rightExhaustY = rightRect.bottom - stageRect.top;
+            
+            // Left is Saffron, Lead is White, Right is Green
+            particles.push(new SmokeParticle(leftExhaustX, leftExhaustY, '#FF9933'));
+            particles.push(new SmokeParticle(leadExhaustX, leadExhaustY, '#FFFFFF'));
+            particles.push(new SmokeParticle(rightExhaustX, rightExhaustY, '#128807'));
+        }
+
+        // --- ANIMATION LOOP ---
+        function animLoop() {
+            if (!isPaused) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                
+                if (isAirShowActive) {
+                    spawnSmokeTrails();
+                }
+                
+                if (flagProgress === 100) {
+                    for (let i = 0; i < 2; i++) {
+                        particles.push(new PetalParticle());
+                    }
+                }
+                
+                for (let i = particles.length - 1; i >= 0; i--) {
+                    const p = particles[i];
+                    p.update();
+                    p.draw();
+                    
+                    if (p.alpha <= 0 || (p.size <= 0.2 && p.decay)) {
+                        particles.splice(i, 1);
+                    }
+                }
+            } else {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particles.length; i++) {
+                    particles[i].draw();
+                }
+            }
+            requestAnimationFrame(animLoop);
+        }
+        requestAnimationFrame(animLoop);
+
+        // --- CONTROLS LISTENERS ---
+
+        // Pause Toggle
+        btnPause.addEventListener('click', () => {
+            isPaused = !isPaused;
+            if (isPaused) {
+                stage.classList.add('paused');
+                btnPause.classList.add('paused-state');
+                btnPause.querySelector('.btn-icon').textContent = '▶';
+                btnPause.querySelector('.btn-text').textContent = 'Play';
+                if (isAnthemPlaying && audioCtx) {
+                    audioCtx.suspend();
+                }
+            } else {
+                stage.classList.remove('paused');
+                btnPause.classList.remove('paused-state');
+                btnPause.querySelector('.btn-icon').textContent = '⏸';
+                btnPause.querySelector('.btn-text').textContent = 'Pause';
+                if (isAnthemPlaying && audioCtx) {
+                    audioCtx.resume();
+                }
+            }
+        });
+
+        // Celebrate Emitter
+        btnCelebrate.addEventListener('click', () => {
+            for (let i = 0; i < 3; i++) {
+                setTimeout(spawnFirework, i * 250);
+            }
+        });
+
+        // Air Show Flypast
+        btnAirShow.addEventListener('click', () => {
+            if (isAirShowActive) return;
+            isAirShowActive = true;
+            jetsFormation.classList.add('fly-active');
+        });
+
+        jetsFormation.addEventListener('animationend', () => {
+            jetsFormation.classList.remove('fly-active');
+            isAirShowActive = false;
+        });
+
+        // Pulley System
+        function updateFlagPosition() {
+            const val = parseInt(pulleyInput.value);
+            flagProgress = val;
+            pulleyLabel.textContent = `FLAG PULLEY: ${val}%`;
+            
+            const flagpolePole = document.querySelector('.flagpole-pole');
+            const totalHeight = flagpolePole.clientHeight || 360;
+            
+            const minBottom = 25;
+            const maxBottom = totalHeight - 35;
+            const bottomVal = minBottom + (val / 100) * (maxBottom - minBottom);
+            
+            flagAssembly.style.bottom = bottomVal + 'px';
+            
+            if (val === 100) {
+                if (!flagAssembly.classList.contains('unfurled')) {
+                    flagAssembly.classList.add('unfurled');
+                    // Explosion of petals on initial hoist completion
+                    for (let i = 0; i < 45; i++) {
+                        particles.push(new PetalParticle());
+                    }
+                }
+            } else {
+                flagAssembly.classList.remove('unfurled');
+            }
+        }
+        pulleyInput.addEventListener('input', updateFlagPosition);
+        window.addEventListener('resize', updateFlagPosition);
+        updateFlagPosition();
+
+        // Theme selection
+        const themeButtons = document.querySelectorAll('.btn-time');
+        themeButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                themeButtons.forEach(b => b.classList.remove('active-theme'));
+                btn.classList.add('active-theme');
+                
+                const targetTheme = btn.getAttribute('data-theme');
+                activeTheme = targetTheme;
+                
+                stage.className = 'animation-stage';
+                stage.classList.add(`stage-${targetTheme}`);
+                
+                if (isPaused) {
+                    stage.classList.add('paused');
+                }
+            });
+        });
+
+        // --- WEB AUDIO API ANTHEM SYNTHESIZER ---
+        let audioCtx = null;
+        let isAnthemPlaying = false;
+        let noteTimeout = null;
+        let currentNoteIndex = 0;
+
+        const C4 = 261.63, D4 = 293.66, E4 = 329.63, F4 = 349.23, G4 = 392.00, A4 = 440.00, B4 = 493.88;
+        const C5 = 523.25, B4b = 466.16;
+
+        const anthemNotes = [
+            [C4, 1], [D4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 0.5], [D4, 0.5], [E4, 1], [F4, 1],
+            [E4, 1.5], [E4, 0.5], [E4, 1], [D4, 1], [D4, 1], [D4, 1], [C4, 2],
+            
+            [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [F4, 0.5], [E4, 0.5], [D4, 1], [F4, 1], [E4, 2],
+            
+            [C4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [A4, 0.5], [G4, 0.5], [F4, 1], [E4, 1], [D4, 1.5], [F4, 0.5], [E4, 2],
+            
+            [F4, 1.5], [F4, 0.5], [F4, 1], [E4, 1], [E4, 1], [D4, 1], [D4, 1], [D4, 1], [C4, 2],
+            
+            [E4, 1], [E4, 1], [E4, 1.5], [E4, 0.5], [D4, 1], [G4, 1], [G4, 1], [G4, 1], [F4, 1], [F4, 2],
+            [E4, 1], [E4, 1], [E4, 1.5], [E4, 0.5], [D4, 1], [G4, 1], [G4, 1], [F4, 0.5], [E4, 0.5], [D4, 1], [F4, 1], [E4, 2],
+            
+            [E4, 1], [E4, 1], [E4, 1], [E4, 1], [E4, 1], [D4, 1], [E4, 1], [F4, 1], [E4, 1], [D4, 2],
+            
+            [C4, 1], [D4, 1], [E4, 1], [E4, 1], [E4, 1.5], [E4, 0.5], [D4, 1], [E4, 1], [F4, 1], [E4, 2],
+            
+            [E4, 0.5], [F4, 0.5], [G4, 1], [G4, 1], [G4, 1.5], [F4, 0.5], [E4, 1], [D4, 1], [F4, 1], [E4, 2],
+            
+            [E4, 1.5], [E4, 0.5], [D4, 1], [D4, 1], [D4, 1], [D4, 1], [C4, 2],
+            
+            [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [G4, 1], [F4, 0.5], [E4, 0.5], [D4, 1], [F4, 1], [E4, 2],
+            
+            [E4, 1.5], [E4, 0.5], [D4, 1], [D4, 1], [D4, 1], [D4, 1], [C4, 2],
+            
+            [C5, 2], [B4, 2], [C5, 4],
+            [A4, 2], [G4, 2], [A4, 4],
+            [F4, 2], [E4, 2], [F4, 4],
+            
+            [C4, 1], [C4, 1], [D4, 1], [D4, 1], [E4, 1], [E4, 1], [F4, 1], [E4, 1], [D4, 1], [C4, 3]
+        ];
+
+        function playSynthNote(freq, durationSec) {
+            if (!audioCtx || audioCtx.state === 'suspended') return;
+            
+            const osc1 = audioCtx.createOscillator();
+            const osc2 = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            
+            osc1.type = 'triangle';
+            osc1.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            
+            osc2.type = 'sine';
+            osc2.frequency.setValueAtTime(freq * 2, audioCtx.currentTime);
+            
+            gainNode.gain.setValueAtTime(0, audioCtx.currentTime);
+            gainNode.gain.linearRampToValueAtTime(0.18, audioCtx.currentTime + 0.04);
+            gainNode.gain.setValueAtTime(0.18, audioCtx.currentTime + durationSec - 0.05);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + durationSec);
+            
+            osc1.connect(gainNode);
+            osc2.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            
+            osc1.start();
+            osc2.start();
+            
+            osc1.stop(audioCtx.currentTime + durationSec);
+            osc2.stop(audioCtx.currentTime + durationSec);
+        }
+
+        function playNextAnthemNote() {
+            if (!isAnthemPlaying || currentNoteIndex >= anthemNotes.length) {
+                isAnthemPlaying = false;
+                btnSound.classList.remove('sound-active');
+                btnSound.querySelector('.sound-icon').textContent = '🔇';
+                return;
+            }
+            
+            const [freq, duration] = anthemNotes[currentNoteIndex];
+            const tempo = 220; 
+            const noteDurationMs = duration * tempo;
+            
+            playSynthNote(freq, noteDurationMs / 1000);
+            
+            currentNoteIndex++;
+            noteTimeout = setTimeout(playNextAnthemNote, noteDurationMs);
+        }
+
+        function playAnthem() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContext();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            
+            isAnthemPlaying = true;
+            currentNoteIndex = 0;
+            playNextAnthemNote();
+        }
+
+        function stopAnthem() {
+            isAnthemPlaying = false;
+            if (noteTimeout) {
+                clearTimeout(noteTimeout);
+                noteTimeout = null;
+            }
+        }
+
+        function toggleAnthem() {
+            if (isAnthemPlaying) {
+                stopAnthem();
+                btnSound.classList.remove('sound-active');
+                btnSound.querySelector('.sound-icon').textContent = '🔇';
+            } else {
+                btnSound.classList.add('sound-active');
+                btnSound.querySelector('.sound-icon').textContent = '🎵';
+                playAnthem();
+            }
+        }
+
+        btnSound.addEventListener('click', toggleAnthem);
+    </script>
+</body>
+</html>

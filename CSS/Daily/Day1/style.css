@@ -1,0 +1,182 @@
+body{
+    margin:0;
+    background:white;
+    font-family:Arial;
+}
+
+
+.main{
+    position:relative;
+    width:500px;
+    height:500px;
+    margin:50px;
+}
+
+
+.card1{
+
+    position: absolute;
+    
+
+    width:120px;
+    height:120px;
+
+    left:50px;
+    top:300px;
+
+    background:#ffb3b3;
+
+    border-radius:10px;
+
+    z-index:1;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    padding-bottom:10px;
+
+    color:white;
+    font-weight:bold;
+    box-shadow:10px 10px 5px gray;
+}
+
+
+
+.card2{
+
+    position: absolute;
+
+    width:120px;
+    height:120px;
+
+    left:100px;
+    top:250px;
+
+    background:#a9d6f5;
+
+    border-radius:10px;
+
+    z-index:2;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    padding-bottom:10px;
+
+    color:white;
+    font-weight:bold;
+    visibility:visible;
+    box-shadow:10px 10px 10px blue;
+}
+
+
+
+.card3{
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    left:150px;
+    top:200px;
+
+    background:#d7b3ff;
+
+    border-radius:10px;
+
+    z-index:3;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    padding-bottom:10px;
+
+    color:white;
+    font-weight:bold;
+    box-shadow:-10px -10px 10px purple;
+}
+
+
+.card4{
+
+    position:absolute;
+
+    width:120px;
+    height:120px;
+
+    left:200px;
+    top:150px;
+
+    background:#a8e6a3;
+
+    border-radius:10px;
+
+    z-index:4;
+
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+
+    padding-bottom:10px;
+
+    color:white;
+    font-weight:bold;
+    box-shadow:10px 15px 20px green;
+}
+
+
+
+/* Now we use grid  */
+
+.main {
+    display: grid;
+    grid-template-columns: 200px auto auto auto;
+    column-gap: 30px;
+    row-gap: 50px;
+    gap: 40px;
+
+}
+
+.card {
+    background-color: rgb(156, 232, 232);
+    padding: 20px;
+    border: 2px solid black;
+}
+
+.main1 {
+    float: left;
+    height: 300px;
+    width: 300px;
+    background-color: greenyellow;
+    background-image: repeating-conic-gradient( red 0%,red 20%, blue 20%, blue 40%, yellow 40%, yellow 60%);
+     /* background-image: linear-gradient(); */
+     /* background-image: repeating-radial-gradient(), */
+        
+
+}
+
+.pie{
+    float: right;
+    
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    background-color: greenyellow;
+    background-image: repeating-conic-gradient( red 0%,red 20%, blue 20%, blue 40%, yellow 40%, yellow 60%);
+    
+}
+
+.tra{
+    float: right;
+    height: 300px;
+    width: 300px;
+    background-color: greenyellow;
+    transform: scaleY(-0.3);
+    /* transform: rotate(145deg); */
+    
+
+}
